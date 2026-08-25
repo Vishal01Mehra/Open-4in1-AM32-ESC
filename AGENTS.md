@@ -83,6 +83,41 @@ Current sensing is **board level, not per channel**: an INA186A3IDCKR at
 30x30 sibling uses two shunts in parallel and reads twice the current at half
 the sensitivity.
 
+**Rev3.2 adds a matched input network at the amplifier**: 1 k in each sense
+leg (R91/R92), 100 nF 50 V from each input to ground (C52/C54) and 1 uF
+across the inputs (C51). Through rev3.1 the bare high-side connection made
+`/CURR` unusable below full throttle, measured 2026-08-21: both amplifier
+inputs ride the switching bus and the common-mode feedthrough rectifies to a
+duty-dependent offset. Against a current clamp the chain read +164% at 15%
+throttle, hard-failed at 80% (the raw ADC count itself collapsed from ~680
+to ~290 while the clamp held a steady 32 A), and was honest only at 100%
+where AM32 stops chopping. The network attenuates the common-mode at the
+pins ~300x and the mismatch-converted differential to 2.8 mVpp worst case
+(SPICE, 1% R / 10% C opposed); scale is unchanged at 20 mV/A. Not yet
+verified on hardware: the acceptance test is the ESC-04 mid-throttle
+i_a-versus-clamp sweep on a rev3.2 board. On rev3.1 and earlier, anything
+consuming `/CURR` (Betaflight OSD current, mAh-drawn battery math) gets
+garbage at flight throttles. Evidence:
+`OpenDrone-Testing/Logs/esc-04-20x20-20260821T150430Z/`.
+
+**Thermal envelope, measured 2026-08-21 on one board.** Continuous 30-34 A
+per channel fan-cooled at a 115 C die; die plateau demonstrated at 26 A, the
+rest of the bracket extrapolated from ramp data. Burst 64 A for 2 s on one
+channel, 112 A board-level for 2.4 s, die still rising 4-6 C/s at step end.
+Destruction at ~40 A sustained: the board fails by SOLDER REFLOW, two FETs
+desoldered (joints past 217 C) while the die read 161 C, so the die
+under-reads the FET joint by roughly 50 C and heat extraction, not silicon,
+is the ceiling. Thermal time constant 4.2-5.3 s. Evidence:
+`OpenDrone-Testing/Logs/esc-18-20x20-20260821T181141Z/` and
+`esc-14-20x20-20260821T154902Z/`.
+
+**As-flashed AM32 config, audited 2026-08-21.** Boards flash with
+`limits.temperature = 255`, so AM32's own thermal foldback never engages and
+nothing on the board protects the FETs; `motor_kv` defaults to the 2808
+preset (decodes 2220 Kv), which caps duty near 0.26 on lower-Kv motors via
+`low_rpm_level`/`high_rpm_level`. Both must be set per product in the
+flashing jig before boards ship.
+
 **There is no input protection.** A clamp diode's 24 V standoff sits below
 the 25.2 V a full 6S pack reaches, so none is fitted on the 2S-6S input.
 
@@ -152,6 +187,7 @@ update-from-schematic without checking what it would delete.
 
 | Rev | Date | Change |
 |---|---|---|
+| Rev3.2 | 2026-08-22 | Export `20x20_ESC_Rev3.2`. Matched input network at the current-sense amplifier (R91/R92 1k, C52/C54 100n 50V, C51 1u) against the high-side common-mode feedthrough; shunt redrawn as Rsense2. Scale unchanged, 20 mV/A. |
 | Rev3.1 | 2026-08-14 | Export `20x20_ESC_Rev3.1`, current. Bulk bank: 22 x 10 uF 1206 on +BATT/GND, 21 of them PCB-only (19 CL refs absent from the schematic, CL50/CL51 doubled). Board setup moved to the line standard. |
 | Rev3 | 2026-08-11 | Rev3 tag. Input clamp diodes (D1, D2) removed. |
 | Rev2-20x20 | 2026-06-05 | Validated build. |
