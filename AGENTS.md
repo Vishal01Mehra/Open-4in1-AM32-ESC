@@ -187,8 +187,9 @@ update-from-schematic without checking what it would delete.
 
 | Rev | Date | Change |
 |---|---|---|
+| Rev3.3 | 2026-08-25 | Export `OpenESC-20x20-rev3.3`, current. Silkscreen rebranded OpenDrone -> incutec; rev text now synced by the export pipeline. Bulk bank moved from 22 x 10 uF (Samsung CL31B106KBHNNNE, C89632) to 22 x 4.7 uF 50 V X7R 1206 (FH 1206B475K500NT, C29823, JLCPCB basic). 57 anchoring vias added on the motor phase pours (waived as via_dangling in the release baseline). |
 | Rev3.2 | 2026-08-22 | Export `20x20_ESC_Rev3.2`. Matched input network at the current-sense amplifier (R91/R92 1k, C52/C54 100n 50V, C51 1u) against the high-side common-mode feedthrough; shunt redrawn as Rsense2. Scale unchanged, 20 mV/A. |
-| Rev3.1 | 2026-08-14 | Export `20x20_ESC_Rev3.1`, current. Bulk bank: 22 x 10 uF 1206 on +BATT/GND, 21 of them PCB-only (19 CL refs absent from the schematic, CL50/CL51 doubled). Board setup moved to the line standard. |
+| Rev3.1 | 2026-08-14 | Export `20x20_ESC_Rev3.1`. Bulk bank: 22 x 10 uF 1206 on +BATT/GND, 21 of them PCB-only (19 CL refs absent from the schematic, CL50/CL51 doubled). Board setup moved to the line standard. |
 | Rev3 | 2026-08-11 | Rev3 tag. Input clamp diodes (D1, D2) removed. |
 | Rev2-20x20 | 2026-06-05 | Validated build. |
 | V2 | 2026-05-04 | Export `V2`. |
