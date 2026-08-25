@@ -6922,7 +6922,7 @@
 
 (property "Reference" "CL32" (at 54.8441 69.8499 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left))) 
 
-(property "Value" "10uF" (at 54.8441 72.3899 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left))) 
+(property "Value" "4.7uF" (at 54.8441 72.3899 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left))) 
 
 (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 51.7652 74.93 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
 
@@ -6930,7 +6930,7 @@
 
 (property "Description" "Unpolarized capacitor" (at 50.8 71.12 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
 
-(property "LCSC" "C89632" (at 50.8 71.12 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
+(property "LCSC" "C29823" (at 50.8 71.12 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
 
 (property "Farnell" "" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
 
@@ -6938,11 +6938,11 @@
 
 (property "Digi-Key" "" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
 
-(property "Cost" "0.05129" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
+(property "Cost" "" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
 
-(property "Manufacturer" "Samsung Electro-Mechanics" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
+(property "Manufacturer" "FH" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) 
 
-(property "MPN" "CL31B106KBHNNNE" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) (pin "2" (uuid "6134dad0-4bc5-49c5-91db-95ccc69d9693")) (pin "1" (uuid "7cee7fd4-dd26-4469-9c54-137bd76dfd49")) (instances (project "4in1-mini" (path "/612d09d9-c556-41af-8a15-92be360f8e81" (reference "CL32") (unit 1))))) 
+(property "MPN" "1206B475K500NT" (at 0 0 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)))) (pin "2" (uuid "6134dad0-4bc5-49c5-91db-95ccc69d9693")) (pin "1" (uuid "7cee7fd4-dd26-4469-9c54-137bd76dfd49")) (instances (project "4in1-mini" (path "/612d09d9-c556-41af-8a15-92be360f8e81" (reference "CL32") (unit 1))))) 
 
 (symbol (lib_id "components:SM08B-SRSS-TB") (at 347.98 59.69 0) (unit 1) (body_style 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no) (uuid "a2a15004-bb55-4ba0-bb3e-9b254c23b035") 
 
