@@ -126,8 +126,8 @@ the 25.2 V a full 6S pack reaches, so none is fitted on the 2S-6S input.
 | Function | Ref | Part | LCSC | Note |
 |---|---|---|---|---|
 | Motor MCU, x4 | U2, U6, U8, U10 | AT32F421G8U7, QFN-28 | C2765098 | One per channel, independent AM32 target |
-| Gate driver, x4 | U3, U7, U9, U11 | NSG2065Q, QFN-24 | C41414478 | FD6288Q compatible, integrated bootstrap diodes |
-| Power MOSFET, x24 | Q1-Q24 | DOY180N03T, PowerDI3333-8 | C49441966 | 30 V, 6 per channel |
+| Gate driver, x4 | U3, U7, U9, U11 | NSG2065Q, QFN-24 | C41414478 | FD6288Q compatible, integrated bootstrap diodes. Second sources: [KiCad-Library ALTERNATES.md](https://github.com/OpenDrone-hw/KiCad-Library/blob/main/ALTERNATES.md), "Three-phase gate driver, QFN-24 4x4" |
+| Power MOSFET, x24 | Q1-Q24 | DOY180N03T, PowerDI3333-8 | C49441966 | 30 V, 6 per channel. Second sources, none fitted: [KiCad-Library ALTERNATES.md](https://github.com/OpenDrone-hw/KiCad-Library/blob/main/ALTERNATES.md), "Power MOSFET, DFN 3x3" |
 | Current sense amp | U12 | INA186A3IDCKR, SC-70-6 | C2058245 | 100 V/V, board level high side |
 | Current shunt | Rsense1 | 0.2 mOhm 2512 | C695806 | Single, in the +BATT feed |
 | Buck | U13 | LMR54406DBVR, SOT-23-6 | C5219316 | 36 V in, 0.6 A; FB 115k/10k against 0.8 V, 10.0 V out |
