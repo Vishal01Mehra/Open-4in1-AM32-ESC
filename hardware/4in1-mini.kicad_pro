@@ -687,6 +687,7 @@
     ]
   ],
   "text_variables": {
+    "OPENDRONE_LIB": "${KIPRJMOD}/KiCad-Library",
     "DOC_FIRMWARE": "AM32",
     "DOC_HANDLE": "openesc-20x20",
     "DOC_INPUT": "+BATT 2S-6S",
